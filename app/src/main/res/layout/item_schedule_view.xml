@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix,UnusedAttribute">
+
+    <data>
+        <import type="com.yousef.mvvmflightinfo.R" />
+        <variable
+            name="viewModel"
+            type="com.yousef.mvvmflightinfo.ui.schedules.ScheduleItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/requestCard"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardElevation="@dimen/_2sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tvDepartureTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorGrayDark"
+                    android:text="@string/departuredate"/>
+                <TextView
+                    android:id="@+id/tvDepartureDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_13sdp"
+                    android:textColor="@color/colorBlack"
+                    android:text="@{viewModel.departureDate}"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tvArrivalTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorGrayDark"
+                    android:text="@string/arrivaldate"/>
+                <TextView
+                    android:id="@+id/tvArrivalDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_13sdp"
+                    android:textColor="@color/colorBlack"
+                    android:text="@{viewModel.arrivalDate}"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/colorGray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tvFlightNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/_13sdp"
+                    android:textColor="@color/colorBlack"
+                    android:text="@{viewModel.flightNumber}"/>
+
+                <TextView
+                    android:id="@+id/tvViewMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_yellow_bg"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="@dimen/_9sdp"
+                    android:textColor="@color/colorBlack"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@string/view_on_map"
+                    android:onClick="@{() -> viewModel.onDetailsClick()}" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

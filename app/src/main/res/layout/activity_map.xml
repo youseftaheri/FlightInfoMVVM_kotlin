@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yousef.mvvmflightinfo.ui.map.MapActivity"
+    tools:ignore="MissingPrefix,UnusedAttribute">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yousef.mvvmflightinfo.ui.map.MapViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/_1sdp">
+            <TextView
+                android:id="@+id/tvOrigin"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:text="@{viewModel.originLiveData}"
+                android:textAlignment="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/_11sdp" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/plane_2"
+                android:contentDescription="@string/app_name" />
+            <TextView
+                android:id="@+id/tvDestination"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:text="@{viewModel.destinationLiveData}"
+                android:textAlignment="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/_11sdp"/>
+        </LinearLayout>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:context="com.yousef.mvvmflightinfo.ui.map.MapActivity"/>
+        <Button
+            android:id="@+id/btBack"
+            style="@style/defaultButton_map"
+            android:onClick="@{() -> viewModel.btBackClick()}"
+            android:text="@string/back" />
+
+    </LinearLayout>
+
+</layout>

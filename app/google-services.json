@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "390036305281",
+    "firebase_url": "https://airportjavamvp.firebaseio.com",
+    "project_id": "airportjavamvp",
+    "storage_bucket": "airportjavamvp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390036305281:android:fc9831cb648fd8093ca480",
+        "android_client_info": {
+          "package_name": "com.yousef.mvpflightinfo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390036305281-ilsaf3at0prmdg89usp8lp1k73i1mea8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEBr3iJewO7jOIpVLxRVgf6NZ7yUwwvzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390036305281-ilsaf3at0prmdg89usp8lp1k73i1mea8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390036305281:android:8805ce73a48506483ca480",
+        "android_client_info": {
+          "package_name": "com.yousef.mvvmflightinfo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390036305281-ilsaf3at0prmdg89usp8lp1k73i1mea8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEBr3iJewO7jOIpVLxRVgf6NZ7yUwwvzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390036305281-ilsaf3at0prmdg89usp8lp1k73i1mea8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390036305281:android:77ba10731f3c80723ca480",
+        "android_client_info": {
+          "package_name": "com.yousef.simpleflightinfo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390036305281-ilsaf3at0prmdg89usp8lp1k73i1mea8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEBr3iJewO7jOIpVLxRVgf6NZ7yUwwvzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390036305281-ilsaf3at0prmdg89usp8lp1k73i1mea8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

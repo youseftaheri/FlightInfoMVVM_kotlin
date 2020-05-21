@@ -1,4 +1,4 @@
-package com.yousef.khedmatazma.safebodatest;
+package com.yousef.mvvmflightinfo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.yousef.khedmatazma.safebodatest", appContext.getPackageName());
+        assertEquals("com.yousef.safebodatest", appContext.getPackageName());
     }
 }

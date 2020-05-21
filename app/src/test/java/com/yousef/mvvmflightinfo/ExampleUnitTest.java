@@ -1,4 +1,4 @@
-package com.yousef.khedmatazma.safebodatest;
+package com.yousef.mvvmflightinfo;
 
 import org.junit.Test;
 

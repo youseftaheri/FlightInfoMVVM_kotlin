@@ -4,19 +4,42 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class LuftSchedulesPOJO {
+    constructor()
+
+    constructor(schedules: List<Schedule>) {
+        scheduleResource = ScheduleResource(schedules)
+    }
+
+    constructor(resource: ScheduleResource){
+        scheduleResource = resource
+    }
+
     @JvmField
     @Expose
     @SerializedName("ScheduleResource")
     var scheduleResource: ScheduleResource? = null
 
-    class ScheduleResource {
+    inner class ScheduleResource {
+        constructor()
+
+        constructor(schedules: List<Schedule>) {
+            Schedules = schedules
+        }
+
         @JvmField
         @Expose
         @SerializedName("Schedule")
         var Schedules: List<Schedule>? = null
     }
 
-    class Schedule : Comparable<Schedule> {
+    inner class Schedule : Comparable<Schedule> {
+        constructor()
+
+        constructor(flight: Flight){
+//            TotalJourney = totalJourney
+            Flight = flight
+        }
+
         @JvmField
         @Expose
         @SerializedName("TotalJourney")
@@ -31,14 +54,29 @@ class LuftSchedulesPOJO {
         }
     }
 
-    class TotalJourney {
+    inner class TotalJourney {
+        constructor()
+
+        constructor(duration: String){
+            Duration = duration
+        }
+
         @JvmField
         @Expose
         @SerializedName("Duration")
         var Duration: String? = null
     }
 
-    class Flight {
+    inner class Flight {
+        constructor()
+
+        constructor(marketingCarrier: MarketingCarrier){
+//            Departure = departure
+//            Arrival = arrival
+//            Details = details
+            MarketingCarrier = marketingCarrier
+        }
+
         @JvmField
         @Expose
         @SerializedName("Departure")
@@ -60,14 +98,20 @@ class LuftSchedulesPOJO {
         var MarketingCarrier: MarketingCarrier? = null
     }
 
-    class MarketingCarrier {
+    inner class MarketingCarrier {
+        constructor()
+
+        constructor(flightNumber: String){
+            FlightNumber = flightNumber
+        }
+
         @JvmField
         @Expose
         @SerializedName("FlightNumber")
         var FlightNumber: String? = null
     }
 
-    class Dep_Arr {
+    inner class Dep_Arr {
         @JvmField
         @Expose
         @SerializedName("AirportCode")
@@ -84,31 +128,32 @@ class LuftSchedulesPOJO {
         var Terminal: Terminal? = null
     }
 
-    class ScheduledTimeLocal {
+    inner class ScheduledTimeLocal {
         @JvmField
         @Expose
         @SerializedName("DateTime")
         var DateTime: String? = null
     }
 
-    class Terminal {
+    inner class Terminal {
         @JvmField
         @Expose
         @SerializedName("Name")
         var Name: String? = null
     }
 
-    class Details {
+    inner class Details {
         @JvmField
         @Expose
         @SerializedName("Stops")
         var Stops: Stops? = null
     }
 
-    class Stops {
+    inner class Stops {
         @JvmField
         @Expose
         @SerializedName("StopQuantity")
         var StopQuantity: String? = null
     }
+
 }

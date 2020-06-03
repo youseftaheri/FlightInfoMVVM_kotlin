@@ -9,12 +9,12 @@ class SplashViewModel (dataManager: DataManager?, schedulerProvider: SchedulerPr
     fun requestAccessTokenPost() {
         navigator!!.showLoading()
         dataManager.requestAccessTokenPost()
-                ?.subscribeOn(schedulerProvider.io())
+                .subscribeOn(schedulerProvider.io())
                 ?.observeOn(schedulerProvider.ui())
                 ?.subscribe({ data: TokenPOJO? ->
                     navigator!!.hideLoading();
-                    if (data != null && data.access_token != null) {
-                        dataManager.accessToken = data!!.access_token!!
+                    if (data?.access_token != null) {
+                        dataManager.accessToken = data.access_token!!
                         navigator!!.openMainActivity()
                     } else navigator!!.handleError("Error occurred")
                 }, { throwable: Throwable ->

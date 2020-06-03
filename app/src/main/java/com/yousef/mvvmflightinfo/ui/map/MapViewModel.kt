@@ -1,23 +1,18 @@
 package com.yousef.mvvmflightinfo.ui.map
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.yousef.mvvmflightinfo.data.DataManager
 import com.yousef.mvvmflightinfo.data.model.AirportLatLongPOJO
-import com.yousef.mvvmflightinfo.data.model.LuftSchedulesPOJO
-import com.yousef.mvvmflightinfo.data.model.TokenPOJO
 import com.yousef.mvvmflightinfo.ui.base.BaseViewModel
 import com.yousef.mvvmflightinfo.utils.rx.SchedulerProvider
 
 class MapViewModel (dataManager: DataManager?, schedulerProvider: SchedulerProvider?) : BaseViewModel<MapNavigator?>(dataManager!!, schedulerProvider!!) {
-    private val originLiveData: MutableLiveData<String?>
-    private val destinationLiveData: MutableLiveData<String?>
+    private val originLiveData: MutableLiveData<String?> = MutableLiveData()
+    private val destinationLiveData: MutableLiveData<String?> = MutableLiveData()
 
     init {
-        originLiveData = MutableLiveData()
-        destinationLiveData = MutableLiveData()
-        originLiveData.setValue(dataManager!!.origin)
-        destinationLiveData.setValue(dataManager!!.destination)
+        originLiveData.value = dataManager!!.origin
+        destinationLiveData.value = dataManager!!.destination
     }
 
     val coordinates: Unit
@@ -27,7 +22,6 @@ class MapViewModel (dataManager: DataManager?, schedulerProvider: SchedulerProvi
                 ?.subscribeOn(schedulerProvider.io())
                 ?.observeOn(schedulerProvider.ui())
                 ?.subscribe({ data: AirportLatLongPOJO? ->
-                    navigator!!.hideLoading();
                     if (data != null) {
                         dataManager.orgLat = data.airportResource!!.Airports!!.Airport!!.Position!!.Coordinate!!.Latitude!!
                         dataManager.orgLng = data.airportResource!!.Airports!!.Airport!!.Position!!.Coordinate!!.Longitude!!
@@ -41,7 +35,6 @@ class MapViewModel (dataManager: DataManager?, schedulerProvider: SchedulerProvi
                                         dataManager.dstLat = data.airportResource!!.Airports!!.Airport!!.Position!!.Coordinate!!.Latitude!!
                                         dataManager.dstLng = data.airportResource!!.Airports!!.Airport!!.Position!!.Coordinate!!.Longitude!!
                                         navigator!!.showData()
-
                                     } else navigator!!.handleError("Error occurred")
                                 }, { throwable: Throwable ->
                                     navigator!!.hideLoading()
@@ -56,11 +49,11 @@ class MapViewModel (dataManager: DataManager?, schedulerProvider: SchedulerProvi
 
     }
 
-    fun getOriginLiveData(): LiveData<String?> {
+    fun getOriginLiveData(): MutableLiveData<String?> {
         return originLiveData
     }
 
-    fun getDestinationLiveData(): LiveData<String?> {
+    fun getDestinationLiveData(): MutableLiveData<String?> {
         return destinationLiveData
     }
 

@@ -8,4 +8,9 @@ class TokenPOJO {
     @Expose
     @SerializedName("access_token")
     var access_token: String? = null
+
+    fun setAccessToken(token: String) {
+        access_token = token
+    }
+
 }

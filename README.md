@@ -1,6 +1,6 @@
 <H1> Flight Schedule </H1>
 
-<B>(Using: MVVM / Dagger / Retrofit2 / RxJava / Databinding / Live Data)</B>
+<B>(Using: MVVM / Dagger / Retrofit2 / RxJava / Databinding / Live Data / ui_unit Test / Espresso / JUnit / Mockito)</B>
 
 This Android app gets list of airline schedules and display their origin and destination airports on a map.
 
